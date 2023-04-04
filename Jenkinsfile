@@ -12,7 +12,7 @@ pipeline {
               sh "cd angular"
               sh "npm install && ng build --prod"
               sh "docker build -t angular-image"
-              sh "cd ..""
+              sh "cd .."
             }
         }
         stage('Docker-compose') {
