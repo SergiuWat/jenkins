@@ -5,7 +5,6 @@ pipeline {
             steps {
               sh "git clone https://github.com/SergiuWat/jenkins"
               sh 'cd spring'
-              sh './mvn clean package -DskipTests=true'
               sh 'docker build -t spring-image .'
               sh 'cd database'
               sh 'docker build -t postgres-image'
