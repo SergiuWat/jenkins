@@ -4,15 +4,15 @@ pipeline {
         stage('Build') {
             steps {
               sh "git clone https://github.com/SergiuWat/jenkins"
-              sh 'cd spring'
-              sh 'docker build -t spring-image .'
-              sh 'cd database'
-              sh 'docker build -t postgres-image'
-              sh '../..'
-              sh 'cd angular'
-              sh 'npm install && ng build --prod'
-              sh 'docker build -t angular-image'
-              sh 'cd ..'
+              sh "cd spring"
+              sh "docker build -t spring-image ."
+              sh "cd database"
+              sh "docker build -t postgres-image"
+              sh "../.."
+              sh "cd angular"
+              sh "npm install && ng build --prod"
+              sh "docker build -t angular-image"
+              sh "cd ..""
             }
         }
         stage('Docker-compose') {
