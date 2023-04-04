@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh '''           
+              sh ''' 
+             "echo pwd"          
              "cd spring/"
              "docker build -t spring-image ."
              "cd database"
