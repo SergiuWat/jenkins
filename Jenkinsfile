@@ -20,10 +20,13 @@ pipeline {
               '''
             }
         }
-        stage('Docker-compose') {
+    stage('Build and Run Docker Compose') {
             steps {
-              bat "docker login"
-              bat "docker-compose up"
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub-creds') {
+                        sh 'docker-compose up -d'
+                    }
+                }
             }
         }
     }
