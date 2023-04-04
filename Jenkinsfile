@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-              sh "git url: https://github.com/SergiuWat/jenkins"
+              sh "git clone https://github.com/SergiuWat/jenkins"
               sh 'cd spring'
               sh './mvn clean package -DskipTests=true'
               sh 'docker build -t spring-image .'
