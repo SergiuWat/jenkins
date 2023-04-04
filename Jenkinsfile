@@ -8,7 +8,7 @@ pipeline {
               sh "docker build -t spring-image ."
               sh "cd database"
               sh "docker build -t postgres-image"
-              sh "../.."
+              sh "cd ../.."
               sh "cd angular"
               sh "npm install && ng build --prod"
               sh "docker build -t angular-image"
@@ -17,8 +17,8 @@ pipeline {
         }
         stage('Docker-compose') {
             steps {
-              sh 'cd spring'
-              sh 'docker-compose up'
+              sh "cd spring"
+              sh "docker-compose up"
             }
         }
         stage('Deliver') {
