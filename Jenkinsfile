@@ -1,10 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Git clone'){
+            sh "git clone https://github.com/SergiuWat/jenkins"
+        }
         stage('Build') {
             steps {
-              sh '''
-             "git clone https://github.com/SergiuWat/jenkins"
+              sh '''           
              "cd spring/"
              "docker build -t spring-image ."
              "cd database"
