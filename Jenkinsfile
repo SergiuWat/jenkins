@@ -5,12 +5,12 @@ pipeline {
             steps {
               sh '''
              "git clone https://github.com/SergiuWat/jenkins"
-             "cd spring"
+             "cd spring/"
              "docker build -t spring-image ."
              "cd database"
              "docker build -t postgres-image"
              "cd ../.."
-             "cd angular"
+             "cd angular/"
              "npm install && ng build --prod"
              "docker build -t angular-image"
              "cd .."
