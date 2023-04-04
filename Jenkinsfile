@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub-creds') {
-                        bat 'docker-compose up'
+                        bat 'docker-compose up -d'
                     }
                 }
             }
