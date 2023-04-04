@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
               sh ''' 
-             echo pwd      
+             cd test      
              cd spring/
              docker build -t spring-image .
              cd database
@@ -13,7 +13,7 @@ pipeline {
              cd angular/
              npm install && ng build --prod
              docker build -t angular-image
-             cd .
+             cd ..
               '''
             }
         }
