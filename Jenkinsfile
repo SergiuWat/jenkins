@@ -1,14 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Git clone'){
-            steps{
-            sh '''
-             "git clone https://github.com/SergiuWat/jenkins"
-             '''
-            }
-           
-        }
         stage('Build') {
             steps {
               sh '''           
